@@ -33,6 +33,15 @@ export const fetchMoviesByQuery = async query => {
   return await response.json();
 };
 
+export const fetchMovieDetails = async id =>
+  fetch(`${BASE_URL}/movie/${id}?language=en_US`, options)
+    .then(response => {
+      checkResponse(response);
+
+      return response;
+    })
+    .then(response => response.json());
+
 const checkResponse = response => {
   if (!response.ok) {
     let err = new Error(`HTTP status: ${response.status}`);
