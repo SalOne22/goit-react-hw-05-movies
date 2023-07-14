@@ -13,10 +13,6 @@ const Cast = () => {
     const updateMovieCast = async () => {
       try {
         const movieCredits = await fetchMovieCast(movieId);
-        console.log(
-          '🚀 ~ file: Cast.jsx:14 ~ updateMovieCast ~ movieDetails:',
-          movieCredits
-        );
         setCredits(movieCredits);
       } catch (error) {
         console.error(error);
