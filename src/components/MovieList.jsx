@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getPosterURL } from 'utils';
 
-const MovieList = ({ movies = [] }) => {
+export const MovieList = ({ movies = [] }) => {
   return (
     <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
       {movies.map(({ id, poster_path, title, overview }) => (
@@ -50,5 +50,3 @@ MovieList.propTypes = {
     })
   ),
 };
-
-export default MovieList;

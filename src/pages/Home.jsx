@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Section } from 'components/Section';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { fetchTrendingMovies } from 'service/api';
-import MovieList from 'components/MovieList';
+import { MovieList } from 'components/MovieList';
 import { Spinner } from 'components/Spinner';
 
 const Home = () => {
