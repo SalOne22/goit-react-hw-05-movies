@@ -68,7 +68,7 @@ const MovieDetails = () => {
               User score:{' '}
               <span className="font-semibold">
                 {vote_average.toFixed(1)}/10
-              </span>{' '}
+              </span>
             </p>
           </div>
           <div className="mb-2">
@@ -77,7 +77,7 @@ const MovieDetails = () => {
           </div>
           <div className="mb-2">
             <h3 className="text-lg font-medium text-slate-600">Genres</h3>
-            <p>{genres.map(genre => genre.name).join(' ')}</p>
+            <p>{genres.map(genre => genre.name).join(' | ')}</p>
           </div>
           <h3 className="text-lg font-medium text-slate-600">
             Additional info

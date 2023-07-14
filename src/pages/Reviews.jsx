@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Spinner } from 'components/Spinner';
+import { SubSection } from 'components/SubSection';
 import { fetchMovieReviews } from 'service/api';
+import { ReviewList } from 'components/ReviewList';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -25,25 +27,13 @@ const Reviews = () => {
   if (reviews === null) return <Spinner />;
 
   return (
-    <>
-      <h2 className="text-xl font-medium text-slate-600 mb-2">Reviews</h2>
+    <SubSection title="Reviews">
       {reviews.length ? (
-        <ul className="flex flex-col gap-2">
-          {reviews.map(({ author, content }) => (
-            <li>
-              <figure>
-                <blockquote>{content}</blockquote>
-                <figcaption className="text-lg font-medium text-slate-500">
-                  — {author}
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
+        <ReviewList reviews={reviews} />
       ) : (
         <p className="text-xl">It seems but there is no reviews here 🤷‍♀️</p>
       )}
-    </>
+    </SubSection>
   );
 };
 
