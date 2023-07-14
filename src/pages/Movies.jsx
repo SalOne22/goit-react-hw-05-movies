@@ -29,6 +29,9 @@ const Movies = () => {
       try {
         const movies = await fetchMoviesByQuery(query);
 
+        if (movies.results.length === 0)
+          toast.error('Sorry, but be cant find any movies by your request');
+
         setMovies(movies.results);
       } catch (error) {
         console.error(error);
