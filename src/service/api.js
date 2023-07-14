@@ -51,6 +51,15 @@ export const fetchMovieCast = async id =>
     })
     .then(response => response.json());
 
+export const fetchMovieReviews = async id =>
+  fetch(`${BASE_URL}/movie/${id}/reviews?language=en-US&page=1`, options)
+    .then(response => {
+      checkResponse(response);
+
+      return response;
+    })
+    .then(response => response.json());
+
 const checkResponse = response => {
   if (!response.ok) {
     let err = new Error(`HTTP status: ${response.status}`);
