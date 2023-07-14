@@ -14,12 +14,20 @@ const MovieList = ({ movies = [] }) => {
         >
           <Link to={`/movies/${id}`} className="flex">
             <img
-              srcSet={`${getPosterURL('w185', poster_path)} 1x,
-                ${getPosterURL('w342', poster_path)} 2x`}
-              src={getPosterURL('w185', poster_path)}
+              srcSet={
+                poster_path
+                  ? `${getPosterURL('w185', poster_path)} 1x,
+                  ${getPosterURL('w342', poster_path)} 2x`
+                  : 'https://placehold.co/185x278?text=No+Poster'
+              }
+              src={
+                poster_path
+                  ? getPosterURL('w185', poster_path)
+                  : 'https://placehold.co/185x278?text=No+Poster'
+              }
               width={92}
               height={138}
-              alt={`Poster for ${title}`}
+              alt={poster_path ? `Poster for ${title}` : 'No poster'}
               className="object-contain mr-4 rounded-lg w-[92px]"
             />
 
