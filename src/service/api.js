@@ -18,6 +18,21 @@ export const fetchTrendingMovies = () =>
     })
     .then(response => response.json());
 
+export const fetchMoviesByQuery = async query => {
+  const params = new URLSearchParams({
+    query,
+    include_adult: false,
+    language: 'en-US',
+    page: 1,
+  });
+
+  const response = await fetch(`${BASE_URL}/search/movie?${params}`, options);
+
+  checkResponse(response);
+
+  return await response.json();
+};
+
 const checkResponse = response => {
   if (!response.ok) {
     let err = new Error(`HTTP status: ${response.status}`);
