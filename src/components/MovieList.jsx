@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getPosterURL } from 'utils';
 
 export const MovieList = ({ movies = [] }) => {
+  const location = useLocation();
+
   return (
     <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
       {movies.map(({ id, poster_path, title, overview }) => (
@@ -12,7 +14,11 @@ export const MovieList = ({ movies = [] }) => {
           hover:-translate-y-1 focus-within:-translate-y-1 transition-transform
           motion-reduce:transition-none"
         >
-          <Link to={`/movies/${id}`} className="flex">
+          <Link
+            to={`/movies/${id}`}
+            state={{ from: location }}
+            className="flex"
+          >
             <img
               srcSet={
                 poster_path
