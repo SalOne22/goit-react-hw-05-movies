@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       pauseOnHover
       theme="dark"
     />
-    <BrowserRouter basename="goit-react-hw-05-movies">
+    <BrowserRouter basename="react-movies">
       <App />
     </BrowserRouter>
   </React.StrictMode>
